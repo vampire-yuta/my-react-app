@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// class App extends Component {
+//     render() {
+//         return(
+//             <React.Fragment>
+//                 <label htmlFor="bar">bar</label>
+//                 <input type="text" onChange={() => {console.log("I am clicked")}} />
+//             </React.Fragment>
+//             )
+//     }
+// }
+
+const App = () => (<Counter></Counter>)
+
+class Counter extends Component {
+    constructor(props) {
+        super(props)
+        console.log(this.state)
+        this.state = {count: 0}
+    }
+
+    handlePlusButton = () => {
+        this.setState({ count: this.state.count + 1})
+    }
+
+    handleMinasButton = () => {
+        this.setState({ count: this.state.count - 1})
+
+    }
+
+    render() {
+        return (
+            <React.Fragment>
+                <div>count: {this.state.count}</div>
+                <button onClick={this.handlePlusButton}>+1</button>
+                <button onClick={this.handleMinasButton}>-1</button>
+            </React.Fragment>
+        )
+    }
 }
 
 export default App;
